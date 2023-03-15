@@ -46,7 +46,9 @@ export default function Home() {
         <Form onSubmit={handleSubmit} className={styles.inputForm}>
           <Form.Group className="mb-3" controlId="prompt-input">
             <Form.Label>
-              <h3>Enter a Simple Prompt:</h3>
+              <h3>
+                Enter a Song Name and chatGPT will generate you a playlist:
+              </h3>
             </Form.Label>
             <Form.Control name="prompt" maxLength={100}></Form.Control>
           </Form.Group>
