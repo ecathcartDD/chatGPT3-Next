@@ -32,6 +32,11 @@ export default function Home() {
     }
   };
 
+  const NewlineText = (props) => {
+    const text = props.text;
+    return text.split("\n").map((str) => <p>{str}</p>);
+  };
+
   return (
     <>
       <Head>
@@ -41,13 +46,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>My AI 🤖</h1>
-        <h2>Powered by GPT-3</h2>
+        <h1>My AI Playlist Generator 🤖🎼</h1>
+        <h2>Powered by chatGPT-3</h2>
         <Form onSubmit={handleSubmit} className={styles.inputForm}>
           <Form.Group className="mb-3" controlId="prompt-input">
             <Form.Label>
               <h3>
-                Enter a Song Name and chatGPT will generate you a playlist:
+                Enter a Song Name and chatGPT-3 will generate you a playlist:
               </h3>
             </Form.Label>
             <Form.Control name="prompt" maxLength={100}></Form.Control>
@@ -62,7 +67,11 @@ export default function Home() {
             {"Something went wrong. Please try again"}
           </div>
         )}
-        {quote && <div className="fw-semibold fs-5">{quote}</div>}
+        {quote && (
+          <div className="fw-semibold fs-5">
+            <NewlineText text={quote} />
+          </div>
+        )}
       </main>
     </>
   );
